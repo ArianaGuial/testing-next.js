@@ -1,13 +1,14 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Navbar from '@/components/Navbar'
+import Image from 'next/image'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'BuildSource - Construction Materials',
-  description: 'Browse our selection of quality materials',
+  description: 'Sign in or register for BuildSource',
 }
 
 export default function RootLayout({
@@ -18,10 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        <main className="container mx-auto px-4 py-8">
-          {children}
-        </main>
+        <div className="logo-container">
+          <Link href="/" className="logo">
+            <Image src="/img/logo.png" alt="Logo" width={60} height={60} />
+          </Link>
+        </div>
+        {children}
       </body>
     </html>
   )
